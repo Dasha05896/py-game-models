@@ -40,13 +40,13 @@ def main() -> None:
 
         # === PLAYER ===
         Player.objects.get_or_create(
-            nickname=nickname,          # <--- ключ JSON = nickname
+            nickname=nickname,
             defaults={
                 "email": data["email"],
-                "bio": data["bio"],
+                "bio": data.get("bio", ""),
                 "race": race,
-                "guild": guild
-            }
+                "guild": guild,
+            },
         )
 
     print("Дані успішно додано в базу!")
